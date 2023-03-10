@@ -88,4 +88,14 @@ public class MyLinkedList {
         myFourthNode.setNext(tempNode.getNext());
         tempNode.setNext(myFourthNode);
     }
+
+    public void deleteNodeOfValue(Integer value) {
+        INode tempNode = head;
+        INode tempNodeTwo = tempNode.getNext();
+        while (tempNodeTwo.getKey() != value) {
+            tempNode = tempNode.getNext();
+            tempNodeTwo = tempNode.getNext();
+        }
+        tempNode.setNext(tempNodeTwo.getNext());
+    }
 }
