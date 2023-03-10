@@ -5,16 +5,18 @@ import org.junit.Test;
 
 public class MyLinkedListTest {
     @Test
-    public void GivenElementWhenFoundShouldPassLinkedListStatus() {
+    public void GivenNodeInsertedAfterGivenKeyShouldPassLinkedListStatus() {
         INode<Integer> myFirstNode = new MyNode<>(56);
         INode<Integer> mySecondNode = new MyNode<>(30);
-        INode<Integer> myThirdNode = new MyNode<>(70);
+        INode<Integer> myFourthNode = new MyNode<>(70);
+        INode<Integer> myThirdNode = new MyNode<>(40);
         MyLinkedList myLinkedList = new MyLinkedList();
         myLinkedList.add(myFirstNode);
         myLinkedList.append(mySecondNode);
-        myLinkedList.append(myThirdNode);
-        boolean status = myLinkedList.search(mySecondNode);
+        myLinkedList.append(myFourthNode);
+        myLinkedList.insertAfter(30, myThirdNode);
         myLinkedList.printMyNodes();
-        Assert.assertTrue(status);
+        boolean result = myThirdNode.getKey() == 40;
+        Assert.assertTrue(result);
     }
 }

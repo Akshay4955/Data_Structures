@@ -1,5 +1,7 @@
 package data_structures;
 
+import java.security.Key;
+
 public class MyLinkedList {
     public INode head;
     public INode tail;
@@ -76,5 +78,14 @@ public class MyLinkedList {
             }
         }
         return false;
+    }
+
+    public void insertAfter(Integer value, INode<Integer> myFourthNode) {
+        INode tempNode = head;
+        while (tempNode.getKey() != value) {
+            tempNode = tempNode.getNext();
+        }
+        myFourthNode.setNext(tempNode.getNext());
+        tempNode.setNext(myFourthNode);
     }
 }
