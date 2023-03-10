@@ -5,6 +5,7 @@ import java.security.Key;
 public class MyLinkedList {
     public INode head;
     public INode tail;
+    private int size;
 
     public MyLinkedList() {
         this.head = null;
@@ -12,6 +13,7 @@ public class MyLinkedList {
     }
 
     public void add(INode newNode) {
+        size++;
         if (this.head == null) {
             this.head = newNode;
             this.tail = newNode;
@@ -39,6 +41,7 @@ public class MyLinkedList {
     }
 
     public void append(INode newNode) {
+        size++;
         if (this.head == null) {
             this.head = newNode;
             this.tail = newNode;
@@ -50,16 +53,19 @@ public class MyLinkedList {
     }
 
     public void insertBetween(INode myFirstNode, INode newNode) {
+        size++;
         INode tempNode = myFirstNode.getNext();
         myFirstNode.setNext(newNode);
         newNode.setNext(tempNode);
     }
 
     public void pop() {
+        size--;
         this.head = head.getNext();
     }
 
     public void popLast() {
+        size--;
         INode tempNode = head;
         while (!tempNode.getNext().equals(tail)) {
             tempNode = tempNode.getNext();
@@ -82,6 +88,7 @@ public class MyLinkedList {
 
     public void insertAfter(Integer value, INode<Integer> myFourthNode) {
         INode tempNode = head;
+        size++;
         while (tempNode.getKey() != value) {
             tempNode = tempNode.getNext();
         }
@@ -90,6 +97,7 @@ public class MyLinkedList {
     }
 
     public void deleteNodeOfValue(Integer value) {
+        size--;
         INode tempNode = head;
         INode tempNodeTwo = tempNode.getNext();
         while (tempNodeTwo.getKey() != value) {
@@ -97,5 +105,8 @@ public class MyLinkedList {
             tempNodeTwo = tempNode.getNext();
         }
         tempNode.setNext(tempNodeTwo.getNext());
+    }
+    public int getSize() {
+        return size;
     }
 }

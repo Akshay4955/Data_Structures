@@ -15,7 +15,9 @@ public class MyLinkedListTest {
         myLinkedList.append(mySecondNode);
         myLinkedList.append(myFourthNode);
         myLinkedList.insertAfter(30, myThirdNode);
+        System.out.println(myLinkedList.getSize());
         myLinkedList.deleteNodeOfValue(40);
+        System.out.println(myLinkedList.getSize());
         myLinkedList.printMyNodes();
         boolean result = mySecondNode.getNext() == myFourthNode;
         Assert.assertTrue(result);
