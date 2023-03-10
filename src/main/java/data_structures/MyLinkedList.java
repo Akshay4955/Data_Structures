@@ -32,4 +32,16 @@ public class MyLinkedList {
         myNodes.append(tempNode.getKey());
         System.out.println(myNodes);
     }
+
+    public void append(INode newNode) {
+        if(this.head == null) {
+            this.head = newNode;
+            this.tail = newNode;
+        }
+        else {
+            INode tempNode = this.tail;
+            tempNode.setNext(newNode);
+            this.tail = newNode;
+        }
+    }
 }
