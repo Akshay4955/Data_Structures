@@ -59,10 +59,22 @@ public class MyLinkedList {
 
     public void popLast() {
         INode tempNode = head;
-        while(!tempNode.getNext().equals(tail)) {
+        while (!tempNode.getNext().equals(tail)) {
             tempNode = tempNode.getNext();
         }
         this.tail = tempNode;
         tempNode.setNext(null);
+    }
+
+    public boolean search(INode myNode) {
+        INode tempNode = head;
+        while (tempNode.getNext() != null) {
+            if (tempNode.getKey() == myNode.getKey()) {
+                return true;
+            } else {
+                tempNode = tempNode.getNext();
+            }
+        }
+        return false;
     }
 }

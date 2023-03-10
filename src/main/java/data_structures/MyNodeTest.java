@@ -1,4 +1,5 @@
 package data_structures;
+
 import org.junit.Assert;
 import org.junit.Test;
 
