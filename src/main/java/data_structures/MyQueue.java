@@ -19,4 +19,7 @@ public class MyQueue {
         return myLinkedList.head;
     }
 
+    public void dequeue() {
+        myLinkedList.pop();
+    }
 }

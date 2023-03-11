@@ -17,4 +17,19 @@ public class MyQueueTest {
         INode peak = myQueue.peak();
         Assert.assertEquals(myFirstNode, peak);
     }
+
+    @Test
+    public void GivenQueueWhenDequeuedShouldGetFirstEnqueuedNode() {
+        MyQueue myQueue = new MyQueue();
+        INode<Integer> myFirstNode = new MyNode<>(56);
+        INode<Integer> mySecondNode = new MyNode<>(30);
+        INode<Integer> myThirdNode = new MyNode<>(70);
+        myQueue.enqueue(myFirstNode);
+        myQueue.enqueue(mySecondNode);
+        myQueue.enqueue(myThirdNode);
+        myQueue.dequeue();
+        myQueue.printMyQueue();
+        INode peak = myQueue.peak();
+        Assert.assertEquals(mySecondNode, peak);
+    }
 }
