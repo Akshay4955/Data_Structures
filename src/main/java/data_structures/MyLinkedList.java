@@ -1,7 +1,5 @@
 package data_structures;
 
-import java.security.Key;
-
 public class MyLinkedList {
     public INode head;
     public INode tail;
@@ -86,7 +84,7 @@ public class MyLinkedList {
         return false;
     }
 
-    public void insertAfter(Integer value, INode<Integer> myFourthNode) {
+    public void insertAfter(Integer value, INode myFourthNode) {
         INode tempNode = head;
         size++;
         while (tempNode.getKey() != value) {
@@ -106,7 +104,24 @@ public class MyLinkedList {
         }
         tempNode.setNext(tempNodeTwo.getNext());
     }
+
     public int getSize() {
         return size;
+    }
+
+    public void sort() {
+        INode currentNode = head;
+        while (currentNode != null) {
+            INode nextNode = currentNode.getNext();
+            while (nextNode != null) {
+                if ((Integer)currentNode.getKey() > (Integer)nextNode.getKey()) {
+                    Integer temp = (Integer)currentNode.getKey();
+                    currentNode.setKey(nextNode.getKey());
+                    nextNode.setKey(temp);
+                }
+                nextNode = nextNode.getNext();
+            }
+            currentNode = currentNode.getNext();
+        }
     }
 }

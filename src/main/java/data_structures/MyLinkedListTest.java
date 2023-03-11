@@ -5,7 +5,7 @@ import org.junit.Test;
 
 public class MyLinkedListTest {
     @Test
-    public void GivenKeyNodeWhenDeletedShouldPassLinkedListResult() {
+    public void GivenLinkedListWhenSortedShouldPassLinkedListResult() {
         INode<Integer> myFirstNode = new MyNode<>(56);
         INode<Integer> mySecondNode = new MyNode<>(30);
         INode<Integer> myFourthNode = new MyNode<>(70);
@@ -13,13 +13,12 @@ public class MyLinkedListTest {
         MyLinkedList myLinkedList = new MyLinkedList();
         myLinkedList.add(myFirstNode);
         myLinkedList.append(mySecondNode);
+        myLinkedList.append(myThirdNode);
         myLinkedList.append(myFourthNode);
-        myLinkedList.insertAfter(30, myThirdNode);
-        System.out.println(myLinkedList.getSize());
-        myLinkedList.deleteNodeOfValue(40);
-        System.out.println(myLinkedList.getSize());
+        myLinkedList.sort();
         myLinkedList.printMyNodes();
-        boolean result = mySecondNode.getNext() == myFourthNode;
+        boolean result = myFirstNode.getKey() == 30 && mySecondNode.getKey() == 40 && myThirdNode.getKey() == 56
+                        && myFourthNode.getKey() == 70;
         Assert.assertTrue(result);
     }
 }
